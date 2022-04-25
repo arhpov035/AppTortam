@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">TorTam</string>
+    <!-- Munu Drawer Strings -->
+    <string name="categories">Категории</string>
+    <string name="categories_cakes">Торты</string>
+    <string name="categories_cupcakes">Капкейки</string>
+    <string name="categories_bouquets">Букеты</string>
+    <string name="categories_baskets">Корзины</string>
+    <string name="account">Аккаунт</string>
+    <string name="account_sign_up">Регистрация</string>
+    <string name="account_sign_in">Вход</string>
+    <string name="account_sign_out">Выход</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

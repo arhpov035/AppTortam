@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/categories">
+        <menu>
+            <item
+                android:title="@string/categories_cakes"
+                android:id="@+id/id_categories_cakes"
+                />
+            <item
+                android:title="@string/categories_cupcakes"
+                android:id="@+id/id_categories_cupcakes"
+                />
+            <item
+                android:title="@string/categories_bouquets"
+                android:id="@+id/id_categories_bouquets"
+                />
+            <item
+                android:title="@string/categories_baskets"
+                android:id="@+id/id_categories_baskets"
+                />
+        </menu>
+    </item>
+
+    <item android:title="@string/account">
+        <menu>
+            <item
+                android:title="@string/account_sign_up"
+                android:id="@+id/id_account_sign_up"
+                />
+            <item
+                android:title="@string/account_sign_in"
+                android:id="@+id/id_account_sign_in"
+                />
+            <item
+                android:title="@string/account_sign_out"
+                android:id="@+id/id_account_sign_out"
+                />
+        </menu>
+    </item>
+
+</menu>
