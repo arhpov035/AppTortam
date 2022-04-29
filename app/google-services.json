@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "421480281288",
-    "project_id": "tortam-77b6d",
-    "storage_bucket": "tortam-77b6d.appspot.com"
+    "project_number": "962591447537",
+    "project_id": "tortamtwo",
+    "storage_bucket": "tortamtwo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:421480281288:android:dcf4a1722a54affc5ee1fd",
+        "mobilesdk_app_id": "1:962591447537:android:9ee852bf7d99218acb8c50",
         "android_client_info": {
           "package_name": "com.arhi_app.tortam"
         }
       },
       "oauth_client": [
         {
-          "client_id": "421480281288-jthatbcspvb6j3gftcd0uu9ldp8qhs7a.apps.googleusercontent.com",
+          "client_id": "962591447537-04pjov58q677hbjtenu3pav4e4lib4he.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBSJKR4lwp5AG4xO6c4hnR8HViIrSAyfNA"
+          "current_key": "AIzaSyC5-lorUtkd48hAs6k-tNI2HrBP5PAa6Rc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "421480281288-jthatbcspvb6j3gftcd0uu9ldp8qhs7a.apps.googleusercontent.com",
+              "client_id": "962591447537-04pjov58q677hbjtenu3pav4e4lib4he.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
