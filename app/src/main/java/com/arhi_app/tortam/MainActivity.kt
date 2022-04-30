@@ -7,10 +7,16 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.arhi_app.tortam.databinding.ActivityMainBinding
+import com.arhi_app.tortam.dialoghelper.DialogConst
+import com.arhi_app.tortam.dialoghelper.DialogHelper
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var rootElement: ActivityMainBinding
+    private val dialogHelper = DialogHelper(this)
+    val mAuth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rootElement = ActivityMainBinding.inflate(layoutInflater)
@@ -42,10 +48,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, "Preset id_categories_baskets", Toast.LENGTH_LONG).show()
             }
             R.id.id_account_sign_up -> {
-                Toast.makeText(this, "Preset id_account_sign_up", Toast.LENGTH_LONG).show()
+                dialogHelper.createSignDialog(DialogConst.SIGN_UP_STATE)
             }
             R.id.id_account_sign_in -> {
-                Toast.makeText(this, "Preset id_account_sign_in", Toast.LENGTH_LONG).show()
+                dialogHelper.createSignDialog(DialogConst.SIGN_IN_STATE)
             }
             R.id.id_account_sign_out -> {
                 Toast.makeText(this, "Preset id_account_sign_out", Toast.LENGTH_LONG).show()
