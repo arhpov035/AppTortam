@@ -26,6 +26,7 @@ class AccountHelper(act: MainActivity) {
             act.mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {task->
                 if (task.isSuccessful){
                     act.uiUpdate(task.result?.user)
+                    act.hideTextFieldsHeader()
                 }else{
                     Toast.makeText(act, act.resources.getString(R.string.sign_in_error), Toast.LENGTH_LONG).show()
                 }
@@ -37,6 +38,7 @@ class AccountHelper(act: MainActivity) {
         user.sendEmailVerification().addOnCompleteListener {task->
             if (task.isSuccessful){
                 Toast.makeText(act, act.resources.getString(R.string.send_verification_done), Toast.LENGTH_LONG).show()
+                act.hideTextFieldsHeader()
             }else{
                 Toast.makeText(act, act.resources.getString(R.string.send_verification_email_error), Toast.LENGTH_LONG).show()
             }
