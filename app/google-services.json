@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "962591447537-iat3e8fpft3qmkv56n4s74q3me8ik20s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arhi_app.tortam",
+            "certificate_hash": "d012d8c80def7cca34e652a9c9e3b404378ef054"
+          }
+        },
+        {
           "client_id": "962591447537-04pjov58q677hbjtenu3pav4e4lib4he.apps.googleusercontent.com",
           "client_type": 3
         }

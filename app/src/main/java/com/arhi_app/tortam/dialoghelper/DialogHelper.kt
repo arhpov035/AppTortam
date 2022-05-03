@@ -10,7 +10,7 @@ import com.arhi_app.tortam.databinding.SignDialogBinding
 
 class DialogHelper(act: MainActivity) {
     private val act = act
-    private val accHelper = AccountHelper(act)
+    val accHelper = AccountHelper(act)
 
     fun createSignDialog(index: Int) {
         val builder = AlertDialog.Builder(act)
@@ -28,6 +28,10 @@ class DialogHelper(act: MainActivity) {
 
         rootDialogElement.btForgetP.setOnClickListener {
             setOnClickResetPassword(rootDialogElement, dialog)
+        }
+
+        rootDialogElement.btGoogleSignIn.setOnClickListener {
+            accHelper.signInWithGoogle()
         }
         dialog.show()
     }
