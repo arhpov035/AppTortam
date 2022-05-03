@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="175dp"
     android:background="@color/blue_light">
 
     <ImageView
@@ -20,14 +20,61 @@
         android:id="@+id/tvAccountEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="#FFFFFF"
         android:backgroundTint="@color/blue_light"
-        android:text="arhipov035@gmail.com"
         android:textColor="@color/white"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imAccountImage"
         app:layout_constraintTop_toBottomOf="@+id/imAccountImage" />
+
+    <TextView
+        android:id="@+id/tvLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/sign_log_in"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imAccountImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountEmail" />
+
+    <TextView
+        android:id="@+id/tvAnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="или "
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tvLogIn"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountEmail" />
+
+    <TextView
+        android:id="@+id/tvRegistr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/sign_registr"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tvAnd"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountEmail" />
+
+    <TextView
+        android:id="@+id/tvActExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_exit"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imAccountImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imAccountImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
