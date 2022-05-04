@@ -160,6 +160,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             showTextFieldsHeader()
         } else {
             tvAccountEmail.text = user.email
+            hideTextFieldsHeader()
         }
     }
 }
