@@ -26,11 +26,14 @@
     <string name="sign_log_in">Войдите</string>
     <string name="sign_and">или</string>
     <string name="sign_exit">Выход</string>
-
     <string name="sign_registr">зарегистрируйтесь</string>
     <string name="forget_password">Забыли пароль?</string>
     <string name="sign_up_error">Не удалось зарегистрироваться</string>
     <string name="sign_in_error">Не удалось войти</string>
     <string name="send_verification_email_error">Не удалось отправить email для подтверждения</string>
     <string name="send_verification_done">На вашу почтку была отправлена ссылка для подтвержения вашего аккаунта, пожалуйста подтвердите Ваш аккаунт!</string>
+
+    <!--    -->
+    <string name="link_done">Email успешно подключен к аккаунту Google</string>
+    <string name="enter_to_g">У вас уже есть аккаунт с такой электронной почтой, войдите по не могу</string>
 </resources>
