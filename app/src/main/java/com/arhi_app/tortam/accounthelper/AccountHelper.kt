@@ -78,12 +78,12 @@ class AccountHelper(act: MainActivity) {
                 if (task.isSuccessful) {
                     Toast.makeText(
                         act,
-                        act.resources.getString(R.string.link_done ),
+                        act.resources.getString(R.string.link_done),
                         Toast.LENGTH_LONG
                     ).show()
                 }
             }
-        }else{
+        } else {
             Toast.makeText(
                 act,
                 act.resources.getString(R.string.enter_to_g),
@@ -99,10 +99,12 @@ class AccountHelper(act: MainActivity) {
                     act.uiUpdate(task.result?.user)
                     act.hideTextFieldsHeader()
                 } else {
-//                    Log.d("MyLog", "Exception : ${task.exception}")
+                    Log.d("MyLog", "Exception 1: ${task.exception}")
+
+
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         val exception = task.exception as FirebaseAuthInvalidCredentialsException
-                        Log.d("MyLog", "Exception : ${exception.errorCode}")
+                        Log.d("MyLog", "Exception 2: ${exception.errorCode}")
                         if (exception.errorCode == FirebaseAuthConstants.ERROR_INVALID_EMAIL) {
                             Toast.makeText(
                                 act,
@@ -116,6 +118,16 @@ class AccountHelper(act: MainActivity) {
                                 Toast.LENGTH_LONG
                             ).show()
                         }
+                    } else if (task.exception is FirebaseAuthInvalidUserException) {
+                        val exception = task.exception as FirebaseAuthInvalidUserException
+                        Log.d("MyLog", "Exception errorCode: ${exception.errorCode}")
+                        if (exception.errorCode == FirebaseAuthConstants.ERROR_USER_NOT_FOUND) {
+                            Toast.makeText(
+                                act,
+                                FirebaseAuthConstants.ERROR_USER_NOT_FOUND,
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
                     }
                 }
             }
@@ -125,7 +137,7 @@ class AccountHelper(act: MainActivity) {
     // ПОЛУЧИЛИ КЛИЕНТА
     //GoogleSignInClient - создаёт специальный интент для того, чтобы отправить сообщение к системе
     private fun getSignInClient(): GoogleSignInClient {
-//настройки сообщения
+        //настройки сообщения
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             // custom_default_web_client_id скоприровал из "D:\AppTortam\app\build\generated\res\google-services\debug\values\values.xml" - почемуто не работало
             .requestIdToken(act.getString(R.string.custom_default_web_client_id)).requestEmail()
@@ -141,6 +153,10 @@ class AccountHelper(act: MainActivity) {
         //запускаем интенет на активити
         act.startActivityForResult(intent, GoogleAccConst.GOOGLE_SIGN_IN_CODE)
 
+    }
+
+    fun signOutG() {
+        getSignInClient().signOut()
     }
 
     fun signInFirebaseWithGoogle(token: String) {

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.arhi_app.tortam.accounthelper.GoogleAccConst
+import com.arhi_app.tortam.act.EditAdsAct
 import com.arhi_app.tortam.databinding.ActivityMainBinding
 import com.arhi_app.tortam.dialoghelper.DialogConst
 import com.arhi_app.tortam.dialoghelper.DialogHelper
@@ -40,6 +42,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         init()
     }
 
+    // прослушивание меню
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.id_new_ads){
+            // переход в активити
+            val i = Intent(this, EditAdsAct::class.java)
+            startActivity(i)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == GoogleAccConst.GOOGLE_SIGN_IN_CODE){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -62,6 +79,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun init() {
+        //указываем какой toolbar использовать в actyvity вместо встроенного
+        //и его нужно ставить выше остального кода, иначе работать не будет
+        setSupportActionBar(rootElement.mainContent.toolbar)
         val toggle =
             ActionBarDrawerToggle(
                 this,
@@ -93,6 +113,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         tvActExit.setOnClickListener {
             uiUpdate(null)
             mAuth.signOut()
+            dialogHelper.accHelper.signOutG()
             rootElement.drawerLayout.closeDrawer(GravityCompat.START)
         }
     }
@@ -121,6 +142,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.id_account_sign_out -> {
                 uiUpdate(null)
                 mAuth.signOut()
+                dialogHelper.accHelper.signOutG()
             }
         }
         rootElement.drawerLayout.closeDrawer(GravityCompat.START)
