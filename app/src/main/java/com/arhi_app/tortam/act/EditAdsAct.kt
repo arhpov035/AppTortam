@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.arhi_app.tortam.R
 import com.arhi_app.tortam.databinding.ActivityEditAdsBinding
+import com.arhi_app.tortam.dialogs.DialogSpinnerHelper
 import com.arhi_app.tortam.utils.CityHelper
 
 class EditAdsAct : AppCompatActivity() {
@@ -13,15 +14,12 @@ class EditAdsAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
         setContentView(rootElement.root)
-        // создаём адаптер и подключаем к нашему спинеру
-        // в него передаём контекс, разметку, массив
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            CityHelper.getAllCountries(this)
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // берем наш спинер
-        rootElement.spContry.adapter = adapter
+
+        // список стран
+        val listCountry = CityHelper.getAllCountries(this)
+        // создаём инстанцию класса DialogSpinnerHelper
+        val dialog = DialogSpinnerHelper()
+        //запускаем
+        dialog.showSpinnerDialog(this, listCountry)
     }
 }
