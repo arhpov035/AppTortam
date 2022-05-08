@@ -4,6 +4,8 @@ import android.content.Context
 import org.json.JSONObject
 import java.io.IOException
 import java.io.InputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 object CityHelper {
     fun getAllCountries(context: Context): ArrayList<String> {
@@ -33,4 +35,27 @@ object CityHelper {
         }
         return tempArray
     }
+
+    // функция для фильтра списка
+    // то что будет возвращать ": ArrayList<String>" отфильтрованный
+    // передаём список "searchText" по которому ищим
+    fun filterListData(list: ArrayList<String>, searchText: String?) : ArrayList<String>{
+        // чтобы принять отфильтрованные данные создаём временный массив
+        val tempList = ArrayList<String>()
+        // этот массив на всякий слуйчай очищаем
+        tempList.clear()
+        if (searchText == null) {
+            tempList.add("No result")
+            return tempList
+        }
+        // фильтруем
+        for (selection : String in list){
+            //  делаем сверку
+            if (selection.lowercase(Locale.ROOT).startsWith(searchText.lowercase(Locale.ROOT)))
+                tempList.add(selection)
+        }
+        if (tempList.size == 0)tempList.add("No result")
+        return tempList
+    }
+
 }
