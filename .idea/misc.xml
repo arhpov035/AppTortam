@@ -15,6 +15,16 @@
         <entry key="..\:/test/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/test/app/src/main/res/layout/nav_header_main.xml" value="0.19010416666666666" />
         <entry key="..\:/test/app/src/main/res/menu/drawer_main_menu.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/drawable/ic_new_ads.xml" value="0.242" />
+        <entry key="app/src/main/res/layout/activity_edit_ads.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/layout/main_content.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/layout/sign_dialog.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/layout/sp_list_item.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/layout/spinner_layout.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/menu/drawer_main_menu.xml" value="0.44166666666666665" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.44166666666666665" />
       </map>
     </option>
   </component>
