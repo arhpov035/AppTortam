@@ -1,8 +1,10 @@
 package com.arhi_app.tortam.act
 
-import android.annotation.SuppressLint
+import android.R.attr
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +19,7 @@ import com.fxn.utility.PermUtil
 
 class EditAdsAct : AppCompatActivity() {
     lateinit var rootElement: ActivityEditAdsBinding
+
     // создаём инстанцию класса DialogSpinnerHelper
     private val dialog = DialogSpinnerHelper()
     private var isImagesPermissionGranted = false
@@ -29,6 +32,20 @@ class EditAdsAct : AppCompatActivity() {
 
     }
 
+    // получаем результат с выбранными фото
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == ImagePicker.REQUEST_CODE_GET_IMAGES) {
+            val returnValue: ArrayList<String> =
+                data?.getStringArrayListExtra(Pix.IMAGE_RESULTS) as ArrayList<String>
+                Log.d("MyLog", "Images :${returnValue[0]}")
+                Log.d("MyLog", "Images :${returnValue[1]}")
+                Log.d("MyLog", "Images :${returnValue[2]}")
+        }
+    }
+
+
+    // разрешение для выбора фото
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -40,9 +57,8 @@ class EditAdsAct : AppCompatActivity() {
 
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    isImagesPermissionGranted = true
+                    ImagePicker.getImages(this)
                 } else {
-                    isImagesPermissionGranted = false
                     Toast.makeText(
                         this,
                         "Approve permissions to open Pix ImagePicker",
@@ -57,7 +73,6 @@ class EditAdsAct : AppCompatActivity() {
     private fun init() {
 
 
-
     }
 
     //OnClicks
@@ -66,7 +81,7 @@ class EditAdsAct : AppCompatActivity() {
         val listCountry = CityHelper.getAllCountries(this)
         //запускаем
         dialog.showSpinnerDialog(this, listCountry, rootElement.tvCountry)
-        if(rootElement.tvCity.text.toString() != getString(R.string.select_city)){
+        if (rootElement.tvCity.text.toString() != getString(R.string.select_city)) {
             rootElement.tvCity.text = getString(R.string.select_city)
         }
     }
@@ -78,7 +93,7 @@ class EditAdsAct : AppCompatActivity() {
             val listCity = CityHelper.getAllCities(selectedCountry, this)
             //запускаем
             dialog.showSpinnerDialog(this, listCity, rootElement.tvCity)
-        }else{
+        } else {
             Toast.makeText(this, "No country selected", Toast.LENGTH_LONG).show()
         }
     }
