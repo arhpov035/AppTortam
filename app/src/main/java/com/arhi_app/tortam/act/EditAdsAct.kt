@@ -1,6 +1,5 @@
 package com.arhi_app.tortam.act
 
-import android.R.attr
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -11,13 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.arhi_app.tortam.R
 import com.arhi_app.tortam.databinding.ActivityEditAdsBinding
 import com.arhi_app.tortam.dialogs.DialogSpinnerHelper
+import com.arhi_app.tortam.frag.FragmentCloseIntarface
+import com.arhi_app.tortam.frag.ImageListFrag
 import com.arhi_app.tortam.utils.CityHelper
 import com.arhi_app.tortam.utils.ImagePicker
 import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 
 
-class EditAdsAct : AppCompatActivity() {
+class EditAdsAct : AppCompatActivity(), FragmentCloseIntarface {
     lateinit var rootElement: ActivityEditAdsBinding
 
     // создаём инстанцию класса DialogSpinnerHelper
@@ -57,7 +58,7 @@ class EditAdsAct : AppCompatActivity() {
 
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    ImagePicker.getImages(this)
+                    ImagePicker.getImages(this, 3)
                 } else {
                     Toast.makeText(
                         this,
@@ -99,6 +100,13 @@ class EditAdsAct : AppCompatActivity() {
     }
 
     fun onClickGetImages(view: View) {
-        ImagePicker.getImages(this)
+        rootElement.scrollViewMain.visibility = View.GONE
+        val fm = supportFragmentManager.beginTransaction()
+        fm.replace(R.id.place_holder, ImageListFrag(this))
+        fm.commit()
+    }
+
+    override fun onFragClose() {
+        rootElement.scrollViewMain.visibility = View.VISIBLE
     }
 }
