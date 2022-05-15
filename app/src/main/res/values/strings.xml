@@ -36,4 +36,8 @@
     <!--    -->
     <string name="link_done">Email успешно подключен к аккаунту Google</string>
     <string name="enter_to_g">У вас уже есть аккаунт с такой электронной почтой, войдите по не могу</string>
+
+    <!--  Edit Activity  -->
+    <string name="select_country">* Выбирите страну</string>
+    <string name="select_city">Выбирите город</string>
 </resources>
